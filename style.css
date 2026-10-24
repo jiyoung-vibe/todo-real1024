@@ -68,6 +68,15 @@ li {
   word-break: keep-all;
 }
 
+li span {
+  flex: 1;
+}
+
+li.done span {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
 li button {
   margin-left: auto;
 }

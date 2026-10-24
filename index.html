@@ -10,11 +10,11 @@
   <h1>이번 주 가게 준비</h1>
 
   <div>
-    <input type="text" placeholder="할 일 적기">
-    <button type="button">추가</button>
+    <input type="text" id="todo-input" placeholder="할 일 적기">
+    <button type="button" id="add-button">추가</button>
   </div>
 
-  <ul>
+  <ul id="todo-list">
     <!--
       할 일 한 개의 모양 (JavaScript로 목록에 채울 때 쓸 자리)
       <li>
@@ -25,6 +25,8 @@
     -->
   </ul>
 
-  <p>남은 할 일 <span>0</span>개</p>
+  <p>남은 할 일 <span id="remaining-count">0</span>개</p>
+
+  <script src="script.js"></script>
 </body>
 </html>
