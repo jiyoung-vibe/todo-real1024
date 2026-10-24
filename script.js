@@ -1,4 +1,5 @@
 const input = document.getElementById("todo-input");
+const dateInput = document.getElementById("todo-date");
 const addButton = document.getElementById("add-button");
 const list = document.getElementById("todo-list");
 const remainingCount = document.getElementById("remaining-count");
@@ -46,6 +47,10 @@ function render() {
     const text = document.createElement("span");
     text.textContent = item.text;
 
+    const deadline = document.createElement("span");
+    deadline.className = "due";
+    deadline.textContent = "마감 " + item.due;
+
     const deleteButton = document.createElement("button");
     deleteButton.type = "button";
     deleteButton.textContent = "삭제";
@@ -55,7 +60,11 @@ function render() {
       render();
     });
 
-    li.append(checkbox, text, deleteButton);
+    li.append(checkbox, text);
+    if (item.due) {
+      li.append(deadline);
+    }
+    li.append(deleteButton);
     list.appendChild(li);
   });
 
@@ -68,8 +77,9 @@ addButton.addEventListener("click", () => {
     return;
   }
 
-  items.push({ text: text, done: false });
+  items.push({ text: text, done: false, due: dateInput.value });
   input.value = "";
+  dateInput.value = "";
   saveItems();
   render();
   input.focus();
